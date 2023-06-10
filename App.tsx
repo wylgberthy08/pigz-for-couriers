@@ -7,9 +7,9 @@ import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "styled-components";
 import theme from "./src/styles/theme";
+import { Routes } from "./src/routes";
 
 export default function App() {
- 
   const [fontsLoaded] = useFonts({
     "Poppins-Black": require("./assets/fonts/Poppins-Black.ttf"),
     "Poppins-Bold": require("./assets/fonts/Poppins-Bold.ttf"),
@@ -20,6 +20,7 @@ export default function App() {
     "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
     "Poppins-SemiBold": require("./assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Thin": require("./assets/fonts/Poppins-Thin.ttf"),
+    "Roboto-Bold":require("./assets/fonts/Roboto-Bold.ttf"),
   });
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
@@ -31,9 +32,9 @@ export default function App() {
     return null;
   }
   return (
-    <ThemeProvider theme={theme} >
+    <ThemeProvider theme={theme}>
       <NavigationContainer>
-        <AuthRoutes />
+        <Routes />
       </NavigationContainer>
     </ThemeProvider>
   );

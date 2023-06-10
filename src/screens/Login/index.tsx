@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import {
   Bar,
@@ -25,6 +26,10 @@ import { InputLogin } from "../../components/login/InputLogin";
 import { Button } from "../../components/Button";
 
 export function Login() {
+  const navigation = useNavigation();
+  function handleLogin() {
+    navigation.navigate("Overview");
+  }
   return (
     <Container>
       <LogoView>
@@ -43,7 +48,7 @@ export function Login() {
       <RecoverButton>
         <RecoverButtonText>Esqueci minha senha</RecoverButtonText>
       </RecoverButton>
-      <Button text="Entrar" onPress={() => console.log("teste")} />
+      <Button text="Entrar" onPress={handleLogin} />
 
       <ButtonRegister>
         <TextRegister color="#676767">Não tem uma Conta?</TextRegister>
