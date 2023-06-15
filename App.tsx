@@ -8,6 +8,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "styled-components";
 import theme from "./src/styles/theme";
 import { Routes } from "./src/routes";
+import { TransactionsDeliveryProvider } from "./src/contexts/deliverys.context";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,7 +21,7 @@ export default function App() {
     "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
     "Poppins-SemiBold": require("./assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Thin": require("./assets/fonts/Poppins-Thin.ttf"),
-    "Roboto-Bold":require("./assets/fonts/Roboto-Bold.ttf"),
+    "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
   });
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
@@ -33,9 +34,11 @@ export default function App() {
   }
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <Routes />
-      </NavigationContainer>
+      <TransactionsDeliveryProvider>
+        <NavigationContainer>
+          <Routes />
+        </NavigationContainer>
+      </TransactionsDeliveryProvider>
     </ThemeProvider>
   );
 }

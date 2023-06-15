@@ -16,8 +16,10 @@ import { SelectCard } from "../../components/newDelivery/SelectCard";
 import { Steps } from "../../components/newDelivery/Steps";
 import { ButtonContained } from "../../components/newDelivery/ButtonContained";
 import { ButtonOutlined } from "../../components/newDelivery/ButtonOutlined";
+import { useDeliverys } from "../../contexts/deliverys.context";
 
 export function NewDelivery() {
+  
   return (
     <Container>
       <AppBar title="Nova entrega" />
