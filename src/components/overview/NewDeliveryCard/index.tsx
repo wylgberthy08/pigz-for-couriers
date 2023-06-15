@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "../Card";
+import { useNavigation } from "@react-navigation/native";
 import {
   ButtonDelivery,
   ButtonText,
@@ -12,6 +13,10 @@ import {
 import { Button } from "../../Button";
 
 export function NewDeliveryCard() {
+  const navigation = useNavigation();
+  function handleNavigation() {
+    navigation.navigate("NewDelivery");
+  }
   return (
     <Card>
       <Container>
@@ -19,11 +24,15 @@ export function NewDeliveryCard() {
         <SubTitle>Número de Identificação</SubTitle>
         <Wrapper>
           <Input />
-          <ButtonDelivery>
+          <ButtonDelivery onPress={handleNavigation}>
             <ButtonText>OK</ButtonText>
           </ButtonDelivery>
         </Wrapper>
-        <Button hasIcon  onPress={() => console.log("teste")} text="Escanear Qrcode" />
+        <Button
+          hasIcon
+          onPress={() => console.log("teste")}
+          text="Escanear Qrcode"
+        />
       </Container>
     </Card>
   );
